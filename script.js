@@ -2,11 +2,17 @@
 // Função para scroll suave ao clicar nos links do menu
 document.querySelectorAll('a.nav-link').forEach(link => {
     link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+
+        if (!href || !href.startsWith('#')) {
+            return;
+        }
+
         e.preventDefault();
-        
-        const targetId = this.getAttribute('href').substring(1);
+
+        const targetId = href.substring(1);
         const targetSection = document.getElementById(targetId);
-        
+
         if (targetSection) {
             targetSection.scrollIntoView({
                 behavior: 'smooth',
@@ -34,26 +40,27 @@ window.addEventListener('scroll', () => {
     const navLinks = document.querySelectorAll('a.nav-link');
     const navbar = document.querySelector('.navbar');
     const homeSection = document.getElementById('home');
-    
+
     let currentSectionId = '';
-    
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        
+
         if (window.pageYOffset >= sectionTop - 200) {
             currentSectionId = section.getAttribute('id');
         }
     });
-    
+
     navLinks.forEach(link => {
+        const href = link.getAttribute('href');
         link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSectionId}`) {
+        if (href && href.startsWith('#') && href === `#${currentSectionId}`) {
             link.classList.add('active');
         }
     });
-    
-    // Controlar transparência da navbar baseado na seção home
+
+    // Controlar transparência da navbar baseado na seção home hero
     if (homeSection) {
         const homeSectionBottom = homeSection.offsetTop + homeSection.offsetHeight;
         if (window.pageYOffset < homeSectionBottom) {
