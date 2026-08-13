@@ -97,7 +97,7 @@ body {
 /* ===================== HERO SECTION ===================== */
 .hero {
     margin-top: 0;
-    padding: 80px 20px;
+    padding: 80px 100px;
     background: url(img/bannerAtlas.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -135,14 +135,14 @@ body {
     cursor: pointer;
     transition: var(--transition-smooth);
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.55);
     animation: slideInLeft 0.8s ease-out 0.4s backwards;
 }
 
 .btn-primary:hover {
-    background-color: #ff5722;
+    background-color: #E50914;
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+    box-shadow: 0 6px 20px rgba(229, 9, 20, 0.55);
 }
 
 .hero-image-placeholder {
@@ -163,15 +163,17 @@ body {
 /* ===================== SECTIONS ===================== */
 .section {
     padding: 80px 20px;
-    background-color: #121212;
+    background: linear-gradient(to bottom, #090909, #121212, #090909);
 }
 
 .section-light {
-    background-color: var(--light-bg);
+    padding: 80px 20px;
+    background: linear-gradient(to bottom, #090909, #8B0000, #090909);
 }
 
 .section-title {
     font-size: 36px;
+    font-weight: 550;
     margin-bottom: 50px;
     text-align: center;
     color: var(--secondary-color);
@@ -219,10 +221,10 @@ body {
 }
 
 .image-placeholder {
-    background-color: var(--light-bg);
-    border: 2px dashed var(--border-color);
+    background-color: transparent;
+    border: none;
     border-radius: 10px;
-    padding: 60px 20px;
+    padding: 0;
     text-align: center;
     color: #999;
     font-size: 16px;
@@ -231,6 +233,18 @@ body {
     align-items: center;
     justify-content: center;
     animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    overflow: hidden;
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    transition: var(--transition-smooth);
+    display: block;
 }
 
 /* ===================== BENEFITS LIST ===================== */
@@ -278,9 +292,10 @@ body {
 }
 
 .benefit-card {
-    background: #fff;
+    background: #1A1A1A;
     padding: 30px;
     border-radius: 10px;
+    border-top: 4px solid var(--primary-color);
     text-align: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     transition: var(--transition-smooth);
@@ -317,7 +332,7 @@ body {
 }
 
 .concept-card {
-    background: #fff;
+    background: #1A1A1A;
     padding: 30px;
     border-radius: 10px;
     border-top: 4px solid var(--primary-color);
@@ -345,7 +360,7 @@ body {
 
 /* ===================== FOOTER ===================== */
 .footer {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+    background: #090909;
     color: #fff;
     padding: 40px 20px;
     text-align: center;
